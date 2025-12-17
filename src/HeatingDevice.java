@@ -3,7 +3,7 @@ public class HeatingDevice extends SmartDevice implements TemperatureControlled 
     private double currentTemperature;
 
     public HeatingDevice(String name, String roomName) {
-        super(name, roomName);
+        super(name, roomName, 1300);
         this.targetTemperature = 20.0;
         this.currentTemperature = 18.0;
     }

@@ -3,7 +3,7 @@ public class SmartTV extends SmartDevice {
     private int channel;
 
     public SmartTV(String name, String roomName) {
-        super(name, roomName);
+        super(name, roomName,220);
         this.volume = 50;
         this.channel = 1;
     }

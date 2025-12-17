@@ -35,7 +35,7 @@ public class SmartController {
             for (SmartDevice device : room.getDevices()) {
                 if (device instanceof HeatingDevice) {
                     HeatingDevice heater = (HeatingDevice) device;
-                    heater.setCurrentTemperature(outsideTemperature + 3);
+                    heater.setCurrentTemperature(outsideTemperature);
 
                     // Auto turn on heating if it's cold outside
                     if (outsideTemperature < 10) {
@@ -44,10 +44,10 @@ public class SmartController {
                             System.out.println("AUTO: " + heater.getName() +
                                     " turned ON (cold outside)");
                         }
-                        heater.setTemperature(22.0);
+                        heater.setTemperature(26.0);
                     }
                     // Auto turn off if it's warm
-                    else if (outsideTemperature > 25) {
+                    else if (outsideTemperature > 28) {
                         if (heater.isOn()) {
                             heater.turnOff();
                             System.out.println("AUTO: " + heater.getName() +
@@ -67,5 +67,30 @@ public class SmartController {
                     " (" + room.getType() + ") - " +
                     room.getDevices().size() + " devices");
         }
+    }
+
+    // ADD THIS NEW METHOD:
+    public void displayEnergyConsumption() {
+        System.out.println("\n=== HOUSE ENERGY CONSUMPTION ===");
+
+        double totalPower = 0;
+        for (Room room : rooms) {
+            double roomPower = 0;
+            System.out.println("\n" + room.getName() + ":");
+
+            for (SmartDevice device : room.getDevices()) {
+                double devicePower = device.isOn ? device.powerConsumption : 0;
+                roomPower += devicePower;
+                System.out.println("  • " + device.getName() + ": " +
+                        (device.isOn ? device.powerConsumption + "W (ON)" : "0W (OFF)"));
+            }
+
+            System.out.println("  Room Total: " + roomPower + "W");
+            totalPower += roomPower;
+        }
+
+        System.out.println("\n=== TOTAL HOUSE CONSUMPTION ===");
+        System.out.println("Total Power: " + totalPower + "W");
+        System.out.println("================================");
     }
 }

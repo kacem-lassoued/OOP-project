@@ -2,11 +2,13 @@ public abstract class SmartDevice implements Controllable {
     protected String name;
     protected boolean isOn;
     protected String roomName;
+    public double powerConsumption;
 
-    public SmartDevice(String name, String roomName) {
+    public SmartDevice(String name, String roomName, double powerConsumption) {
         this.name = name;
         this.roomName = roomName;
         this.isOn = false;
+        this.powerConsumption = powerConsumption;
     }
 
     public void turnOn() {

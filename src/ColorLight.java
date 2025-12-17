@@ -1,3 +1,4 @@
+import java.util.*;
 public class ColorLight extends SmartLight {
     private String color;
 
@@ -7,8 +8,15 @@ public class ColorLight extends SmartLight {
     }
 
     public void setColor(String color) {
-        this.color = color;
-        System.out.println(name + " color changed to " + color);
+        Set<String> validColors = Set.of("yellow", "white", "red", "blue", "green");
+        if (validColors.contains(color.toLowerCase())) {
+            this.color = color;
+            System.out.println(name + " color changed to " + color);
+        }
+        else {
+            System.out.println("Invalid color: " + color);
+        }
+
     }
 
     public String getColor() {

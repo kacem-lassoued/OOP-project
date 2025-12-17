@@ -2,7 +2,7 @@ class SmartLock extends SmartDevice {
     private boolean locked;
 
     public SmartLock(String name, String roomName) {
-        super(name, roomName);
+        super(name, roomName,20);
         this.locked = true;
     }
 

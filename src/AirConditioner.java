@@ -3,7 +3,7 @@ public class AirConditioner extends SmartDevice implements TemperatureControlled
     private String mode; // cooling, heating, fan
 
     public AirConditioner(String name, String roomName) {
-        super(name, roomName);
+        super(name, roomName, 1100);
         this.targetTemperature = 22.0;
         this.mode = "cooling";
     }

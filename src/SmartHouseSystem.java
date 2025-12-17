@@ -45,7 +45,8 @@ public class SmartHouseSystem {
             System.out.println("1. View all rooms");
             System.out.println("2. Control room devices");
             System.out.println("3. Set outside temperature (for automation)");
-            System.out.println("4. Exit");
+            System.out.println("4. View energy consumption");  // ADD THIS LINE
+            System.out.println("5. Exit");                     // CHANGE 4 → 5
             System.out.print("Choose an option: ");
 
             int choice = getIntInput(scanner);
@@ -62,7 +63,10 @@ public class SmartHouseSystem {
                     double temp = getDoubleInput(scanner);
                     controller.setOutsideTemperature(temp);
                     break;
-                case 4:
+                case 4:  // ADD THIS NEW CASE
+                    controller.displayEnergyConsumption();
+                    break;
+                case 5:  // CHANGE 4 → 5
                     running = false;
                     System.out.println("\nGoodbye! Smart house secured.");
                     break;

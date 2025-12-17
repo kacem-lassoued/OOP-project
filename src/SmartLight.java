@@ -2,7 +2,7 @@ public class SmartLight extends SmartDevice implements Dimmable {
     private int brightness;
 
     public SmartLight(String name, String roomName) {
-        super(name, roomName);
+        super(name, roomName,60);
         this.brightness = 100;
     }
 

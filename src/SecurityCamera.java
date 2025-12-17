@@ -2,7 +2,7 @@ public class SecurityCamera extends SmartDevice {
     private boolean recording;
 
     public SecurityCamera(String name, String roomName) {
-        super(name, roomName);
+        super(name, roomName, 40);
         this.recording = false;
     }
 
